@@ -155,6 +155,48 @@ object TestApplyClassObject{
 */
 
 
+// 继承
+/*
+abstract class car{    // abstract class, other class will inherit/ expand from this class
+  val carBrand: String    // 不给任何值叫抽象字段
+  def info()              // 不写方法体叫抽象方法
+  def greeting()={   // 不是抽象方法
+    println("Welcome to my car")
+  }
+}
+
+class BMWCar extends car {
+  override val carBrand = "BMW" // 重写父类字段，必须用override，否则报错
+  def info()={            // 重写父类抽样方法， 可用也可不用加override
+    printf("This is %s car \n",carBrand)
+  }
+  override def greeting()={  // 重写父类的非抽象方法，必须用override
+    println("Welcome to BMW !")
+  }
+}
+
+class SUVCar extends car {
+  override val carBrand = "SUV"
+  def info()={
+    printf("This is %s car \n",carBrand)
+  }
+  override def greeting()={
+    println("Welcome to SUV !")
+  }
+}
+
+object MyCar{
+  def main(args: Array[String]): Unit = {
+    val car1 = new BMWCar()
+    val car2 = new SUVCar()
+    car1.greeting()
+    car1.info()
+    car2.greeting()
+    car2.info()
+  }
+}
+*/
+
 
 
 
