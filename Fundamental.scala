@@ -198,6 +198,7 @@ object MyCar{
 */
 
 // trait
+/*
 trait CarId{
   var id:Int    // 抽象字段
   def currentId():Int  // 抽象方法
@@ -228,7 +229,7 @@ object MyCar{
     printf("My second car id is %d",car2.currentId())
   }
 }
-
+*/
 
 
 
