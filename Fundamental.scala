@@ -106,6 +106,54 @@ object Person{
 }
 */
 
+// Apply method, that's by default, 自动被调用
+/*
+object TestApply{
+  def apply(para1:String,para2:String):String={
+    println("Apply method called")
+    para1 + "and" + para2
+  }
+}
+
+object test{
+  def main(args: Array[String]): Unit = {
+    val group = TestApply("feifei","beibei")
+    println(group)
+  }
+}
+*/
+
+// Apply method (伴生类 & 伴生对象)
+/*
+class TestApplyClassObject{
+
+}
+
+class ApplyTest{
+  def apply() = println("apply method in class is called! ")
+  def greeting={
+    println("greeting method in class is called")
+  }
+}
+
+object ApplyTest{
+  def apply()={
+    println("apply method in object is called! ")
+    new ApplyTest()
+  }
+}
+
+object TestApplyClassObject{
+  def main(args: Array[String]): Unit = {
+    val a = ApplyTest() // 调用伴生对象中的apply method
+    a.greeting
+    a() // 调用伴生类中的apply method, 必须先产生个实例对象，再加个圆括号
+  }
+}
+
+// 举例： val a =Array(1,2,3), 因为不用 new Array, 所以先调用Array伴生对象的apply方法，然后圆括号执行Array类的update方法
+*/
+
 
 
 
