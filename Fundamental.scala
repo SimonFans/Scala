@@ -197,6 +197,38 @@ object MyCar{
 }
 */
 
+// trait
+trait CarId{
+  var id:Int    // 抽象字段
+  def currentId():Int  // 抽象方法
+}
+
+trait CarGreeting{
+  def greeting(msg:String): Unit ={
+    println(msg)
+  }
+}
+class BYDCar extends CarId with CarGreeting { // extends.. with ..加入更多trait
+  override var id = 10000
+  override def currentId(): Int = {id+=1; id}
+}
+
+class BMWCar extends CarId with CarGreeting{
+  override var id = 20000
+  override def currentId(): Int = {id+=1; id}
+}
+
+object MyCar{
+  def main(args: Array[String]): Unit = {
+    val car1 = new BYDCar()
+    val car2 = new BMWCar()
+    car1.greeting("Welcome to my first car!")
+    printf("My first car id is %d \n",car1.currentId())
+    car2.greeting("Welcome to my second car!")
+    printf("My second car id is %d",car2.currentId())
+  }
+}
+
 
 
 
