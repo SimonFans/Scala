@@ -231,5 +231,98 @@ object MyCar{
 }
 */
 
+// Match的用法
+
+object testMatch{
+  def main(args: Array[String]): Unit = {
+    val colorNum = 5
+    val colorStr = colorNum match {
+      case 1 => "Red"
+      case 2 => "Green"
+      case 3 => "Yellow"
+      case _ => "Not found"
+    }
+    println(colorStr)
+  }
+}
+
+object testMatch_Variable{
+  def main(args: Array[String]): Unit = {
+    val colorNum = 5
+    val colorStr = colorNum match {
+      case 1 => "Red"
+      case 2 => "Green"
+      case 3 => "Yellow"
+      case unexpected => unexpected+" is not found"
+    }
+    println(colorStr)
+  }
+}
+
+
+object testMatch_Type{
+  def main(args: Array[String]): Unit = {
+    for (elem <- List(9,12.3,"Spark","Hadoop",'Hello)) {
+      val str = elem match {
+        case i:Int => i + " is an int value "
+        case d:Double => d+ " is a double value "
+        case "Spark" => "Spark is found "
+        case s: String => s + " is string type "
+        case _ => "This is a unexpected value "
+      }
+      println(str)
+    }
+  }
+}
+
+object testMatch_logic{
+  def main(args: Array[String]): Unit = {
+    for (elem <- List(1,2,3,4,5)){
+      elem match {
+        case _ if (elem%2==0) => println(elem + " is an even number")
+        case _  => println(elem + " is an odd number")
+      }
+    }
+  }
+}
+
+case class Car (brand:String, price:Int)
+
+object testMatch_caseClass{
+  def main(args: Array[String]): Unit = {
+    val car1 = new Car("A",10)
+    val car2 = new Car(brand = "B",price = 20)
+    val car3 = new Car(brand = "C",price = 50)
+    for (car <- List(car1,car2,car3)){
+      car match{
+        case Car ("A",10) => println("This is Car1")
+        case Car ("B",20) => println("This is Car2")
+        case Car(brand,price) => printf("Brand: %s, Price: %d",brand,price)
+      }
+    }
+  }
+}
+
+// Option type (Some or None are subtype of Option)
+// If has value returned, then show Some(), otherwise show None
+// Sometimes we want to show some meaningful info, so we use getOrElse() method
+// Option 返回的是一个集合，可以是None，一个单值，或者多个值，所以可以理解返回的是一个集合
+object testMatch_Option{
+  def main(args: Array[String]): Unit = {
+    val books = Map("hadoop"-> 5, "spark"-> 10)
+    println(books.get("hadoop")) // return Some(5)\
+    println(books.get("hive"))
+    val sales = books.get("hive")
+    println(sales.getOrElse("No such book"))
+    books.get("hive").foreach(println)
+  }
+}
+
+
+
+
+
+
+
 
 
