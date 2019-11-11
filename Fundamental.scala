@@ -319,6 +319,43 @@ object testMatch_Option{
 }
 
 
+// 匿名函数
+
+object test_function{
+  def main(args: Array[String]): Unit = {
+
+    val myNumFunction :Int => Int = (num:Int) => num*2
+    val myNumFunction1 = (num:Int) => num*2
+    val myNumFunction2 :Int => Int = (num) => num*2
+    println(myNumFunction(3))
+    println(myNumFunction1(5))
+    println(myNumFunction2(10))
+  }
+}
+
+// 闭包:是一个函数，反映了一个从开放到封闭的过程，每个闭包都会访问闭包创建时活跃的more变量
+
+object test_closed_package{
+  def main(args: Array[String]): Unit = {
+    var more = 1
+    val addMore = (x:Int) => x+ more
+    println(addMore(10))
+    more = 5
+    println(addMore(20))
+  }
+}
+
+// 占位符的用法
+
+object test_Placeholder{
+  def main(args: Array[String]): Unit = {
+    val numList = List(-3,-5,1,6,9)
+    println(numList.filter(_ > 0))
+    val f = (_:Int) + (_:Int)
+    println(f(5,10))
+  }
+}
+
 
 
 
