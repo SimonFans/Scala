@@ -356,7 +356,53 @@ object test_Placeholder{
   }
 }
 
+// 集合
+// 1. Map & flatMap. Map is 1:1, flatMap is 1 to n. flatMap对每个输入都会返回一个集合（而不是一个元素）, 最后多个集合成为一个集合。
+// 2. filter
+// 3. reduce <reduceLeft, reduceRight>
+// 4  fold 操作需要提供一个初始值，然后和reduce相似，默认从左至右一次操作
 
+object collection_map{
+  def main(args: Array[String]): Unit = {
+    val books = List("Hadoop","Hive","Hbase")
+    val b_map=books.map(s=>s.toUpperCase())
+    println("Map: "+b_map)
+    val b_flatMap=books.flatMap(s=>s.toList)
+    println("flatMap: "+b_flatMap)
+  }
+}
+
+
+object collection_filter{
+  def main(args: Array[String]): Unit = {
+    val university = Map("Dallas"->"UTD","Seattle"->"Washington University")
+    val dallas = university.filter(x=>x._2=="UTD")
+    val dallas1 = university.filter(x=>x._2 contains "UTD")
+    val dallas2 = university.filter(x=>x._2 startsWith "U")
+    println(dallas)
+    println(dallas1)
+    println(dallas2)
+  }
+}
+
+
+object collection_reduce{
+  def main(args: Array[String]): Unit = {
+    val list = List(1,2,3,4,5)
+    val left = list.reduceLeft(_+_)
+    val right = list.reduceRight(_+_)
+    println(left)
+    println(right)
+  }
+}
+
+object collection_fold{
+  def main(args: Array[String]): Unit = {
+    val list = List(1,2,3,4,5)
+    val res = list.fold(10)(_*_)
+    println(res)
+  }
+}
 
 
 
